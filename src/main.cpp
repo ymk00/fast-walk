@@ -32,7 +32,7 @@ int main() {
         // https://linux.die.net/man/2/getdents64
         char buf[10000];
         for (;;) {
-            int nread = syscall(SYS_getdents64, fd, buf, sizeof(buf));
+            int nread = getdents64(fd, buf, sizeof(buf));
             if (nread == -1) {
                 std::cout << errno << std::endl;
                 break;
